@@ -1,6 +1,6 @@
-import * as S from "./styles";
 import React from "react";
-import { CyclesContext } from "../..";
+import * as S from "./styles";
+import { CyclesContext } from "../../../../contexts/CyclesContext";
 import { differenceInSeconds } from "date-fns";
 
 export function Countdown() {
@@ -21,7 +21,7 @@ export function Countdown() {
       interval = window.setInterval(() => {
         const secondsDifference = differenceInSeconds(
           new Date(),
-          activeCycle.startDate
+          new Date(activeCycle.startDate)
         );
         if (secondsDifference >= totalSeconds) {
           markCurrentCycleAsFinished();
